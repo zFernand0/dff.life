@@ -1,0 +1,35 @@
+{
+  "name": "dff-life",
+  "version": "1.0.0",
+  "description": "Designed Financial Freedom (DFF) - Financial Coaching for a Purposeful Life",
+  "main": "docs/index.html",
+  "private": true,
+  "scripts": {
+    "dev": "live-server docs --port=3000 --open=/index.html",
+    "dev:watch": "nodemon --watch docs --ext html,js,css --exec \"live-server docs --port=3000\"",
+    "format": "prettier --write \"docs/**/*.{html,css,js}\"",
+    "format:check": "prettier --check \"docs/**/*.{html,css,js}\"",
+    "lint": "htmlhint docs/**/*.html",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "echo 'Deploy via GitHub Pages'"
+  },
+  "keywords": [
+    "financial-coaching",
+    "debt-payoff",
+    "financial-freedom",
+    "wealth-building",
+    "immigrant-finance",
+    "personal-finance"
+  ],
+  "author": "Designed Financial Freedom (DFF)",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.0",
+    "htmlhint": "^1.1.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
