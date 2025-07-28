@@ -25,6 +25,7 @@ jobs:
         with:
           item-status: ${{ fromJSON(env.ISSUE_STATUSES)[github.event.label.name] }}
           project-number: ${{ env.PROJECT_NUMBER }}
+          project-owner: zFernand0
           project-token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: zowe-actions/shared-actions/project-move-item@main
@@ -33,4 +34,5 @@ jobs:
           assign-author: true
           item-status: ${{ github.event.pull_request.draft && env.PR_STATUS_DRAFT || env.PR_STATUS_READY }}
           project-number: ${{ env.PROJECT_NUMBER }}
+          project-owner: zFernand0
           project-token: ${{ secrets.GITHUB_TOKEN }}
