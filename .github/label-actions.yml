@@ -1,0 +1,10 @@
+bug:
+  comment: |
+    Thank you for creating a bug report.
+    We will investigate the issue and evaluate its impact.
+    If you haven't already, please ensure you have provided as much context as possible.
+enhancement:
+  comment: |
+    Thank you for raising this enhancement request.
+    We will review it and consider it for future releases.
+    If you haven't already, please ensure you have provided as much context as possible.
