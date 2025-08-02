@@ -7,7 +7,7 @@ Financial Coaching for a Purposeful Life
 Designed Financial Freedom (DFF) helps individuals and couples transform financial stress into intentional purpose and lasting joy. We empower people to achieve debt liberation, build intentional wealth, and gain financial resilience.
 
 **Website**: [dff.life](https://dff.life)
-**Contact**: hello@designedfreedom.com
+**Contact**: hello@dff.life
 
 ## Project Structure
 
@@ -18,6 +18,19 @@ docs/
 │   └── index.html
 └── CNAME                   # Custom domain configuration
 ```
+## Repository Structure
+
+This project uses GitHub’s collaborative features for better development workflow:
+
+- `.github/ISSUE_TEMPLATE/` — Templates for bug reports and feature requests
+- `.github/PULL_REQUEST_TEMPLATE.md` — Pull request guidelines
+- `.github/workflows/` — Automated GitHub Actions for CI/CD, auditing, changelog, and automation
+- `.github/label-actions.yml` — Automated label management
+- `.gitignore` — Specifies files and folders to ignore in version control
+- `CHANGELOG.md` — Project changelog and release notes
+- `package-lock.json` — Dependency lockfile for reproducible builds
+
+See each file for more details on its purpose.
 
 ## Features
 
