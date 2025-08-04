@@ -1,3 +1,28 @@
+function languageToggle() {
+  const currentLanguage = localStorage.getItem('language') || 'es';
+  const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
+
+  fetch(`res/${newLanguage}.json`)
+    .then(response => response.json())
+    .then(data => {
+      updateContent(data);
+      localStorage.setItem('language', newLanguage); // Store the new language
+    })
+    .catch(error => console.error('Error loading language file:', error));
+}
+
+function updateContent(data) {
+  for (const key in data) {
+    const element = document.getElementById(key);
+    if (element) {
+      element.textContent = data[key];
+    }
+  }
+}
+
+// Call languageToggle to load es.json initially
+languageToggle('es');
+
 // Add this to your main JavaScript file
 document.addEventListener('DOMContentLoaded', () => {
   // Get the overlay and button elements from the DOM
