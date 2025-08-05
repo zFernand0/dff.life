@@ -5,8 +5,7 @@
   "main": "docs/index.html",
   "private": true,
   "scripts": {
-    "dev": "live-server docs --port=3000 --open=/index.html",
-    "dev:watch": "nodemon --watch docs --ext html,js,css --exec \"live-server docs --port=3000\"",
+    "dev": "npx serve docs --listen 3000",
     "format": "prettier --write \"docs/**/*.{html,css,js}\"",
     "format:check": "prettier --check \"docs/**/*.{html,css,js}\"",
     "lint": "htmlhint docs/**/*.html",
@@ -24,10 +23,9 @@
   "author": "Designed Financial Freedom (DFF)",
   "license": "MIT",
   "devDependencies": {
-    "live-server": "^1.2.2",
-    "nodemon": "^3.0.2",
+    "htmlhint": "^1.1.4",
     "prettier": "^3.1.0",
-    "htmlhint": "^1.1.4"
+    "serve": "^14.2.1"
   },
   "engines": {
     "node": ">=16.0.0"

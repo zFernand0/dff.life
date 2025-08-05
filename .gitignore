@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-package-lock.json
 yarn.lock
 
 # IDE/Editor files
@@ -61,4 +60,4 @@ out/
 
 # Local configuration files
 config.local.js
-settings.local.json 
+settings.local.json

@@ -1,0 +1,25 @@
+name: Update GitHub Project
+
+on:
+  issues:
+    types: [labeled]
+
+env:
+  PROJECT_NUMBER: 6
+  ISSUE_STATUSES: '{"priority-high": "Priority: High", "priority-medium": "Priority: Medium", "priority-low": "Priority: Low"}'
+
+permissions:
+  issues: write
+
+jobs:
+  update-project:
+    name: Move project item
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zowe-actions/shared-actions/project-move-item@main
+        if: ${{ fromJSON(env.ISSUE_STATUSES)[github.event.label.name] }}
+        with:
+          item-status: ${{ fromJSON(env.ISSUE_STATUSES)[github.event.label.name] }}
+          project-number: ${{ env.PROJECT_NUMBER }}
+          project-owner: zFernand0
+          project-token: ${{ secrets.DFF_UPDATE_PROJECT }}
