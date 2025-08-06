@@ -1,0 +1,6 @@
+# _config.yml
+theme: jekyll-theme-minimal
+exclude:
+  - my-secret-folder/
+  - my-draft-page.html
+  - another-file.md

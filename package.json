@@ -11,7 +11,7 @@
     "lint": "htmlhint docs/**/*.html",
     "build": "echo 'No build step required for static site'",
     "deploy": "echo 'Deploy via GitHub Pages'",
-    "i18n": "node docs/res/i18n.js"
+    "i18n": "node docs/scripts/i18n.js"
   },
   "keywords": [
     "financial-coaching",
