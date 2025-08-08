@@ -13,7 +13,7 @@ function updateContent(data) {
   for (const key in data) {
     const element = document.getElementById(key);
     if (element) {
-      element.textContent = data[key];
+      element.innerHTML = String(data[key]).replace(/\n/g, '<br/>');
     }
   }
 }
