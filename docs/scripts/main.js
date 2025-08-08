@@ -1,10 +1,10 @@
 function languageToggle() {
   const newLanguage = getLanguage() === 'es' ? 'en' : 'es';
+  localStorage.setItem('language', newLanguage); // Store the new language
   fetch(`i18n/${newLanguage}.json`)
     .then(response => response.json())
     .then(data => {
       updateContent(data);
-      localStorage.setItem('language', newLanguage); // Store the new language
     })
     .catch(error => console.error('Error loading language file:', error));
 }
@@ -13,7 +13,7 @@ function updateContent(data) {
   for (const key in data) {
     const element = document.getElementById(key);
     if (element) {
-      element.textContent = data[key];
+      element.innerHTML = String(data[key]).replace(/\n/g, '<br/>');
     }
   }
 }
