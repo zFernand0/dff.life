@@ -18,15 +18,21 @@
 <body class="bg-gray-50 text-gray-800">
     <div class="max-w-4xl mx-auto p-8 lg:p-12 bg-white rounded-xl shadow-lg mt-8 mb-8">
         <header class="text-center mb-12">
-            <h1 class="text-4xl font-extrabold text-indigo-800 mb-2" data-i18n="header-title">Designed Financial Freedom
-                DFF</h1>
-            <p class="text-xl text-gray-500" data-i18n="header-subtitle">Privacy Policy</p>
+            <h1 class="text-4xl font-extrabold text-indigo-800 mb-2" data-i18n="designed_financial_freedom">Designed
+                    Financial Freedom</h1>
+            <p class="text-xl text-gray-500" data-i18n="privacy-policy-title">Privacy Policy</p>
         </header>
 
         <!-- PRIVACY POLICY -->
         <section id="privacy-policy">
+            <span class="flex items-center justify-between mb-6">
+                
             <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-indigo-200 pb-2"
                 data-i18n="privacy-policy-title">Privacy Policy</h2>
+                <a href="./privacy"><button onclick="languageToggle()" id="espanol"
+                            class="btn-secondary border-2 text-indigo-600 font-semibold transition duration-300"
+                            data-i18n="espanol">Español</button></a>
+            </span>
             <p class="text-sm text-gray-500 mb-4" data-i18n="privacy-effective-date-label">**Effective Date:**
                 Aug/04/2025</p>
             <p class="mb-6" data-i18n="privacy-intro-1">This Privacy Policy explains how Designed Financial Freedom
@@ -76,7 +82,7 @@
                 <li><strong class="font-semibold" data-i18n="privacy-info-third-party-payment-label">Payment
                         Processors:</strong> <span data-i18n="privacy-info-third-party-payment-text">When you make a
                         payment for our Services, your payment information is handled by a third-party payment processor
-                        ([e.g., Affirm, Klarna]). We do not store your credit card or bank account details. You should
+                        Affirm or Klarna. We do not store your credit card or bank account details. You should
                         review the privacy policy of the third-party processor to understand their data
                         practices.</span></li>
                 <li><strong class="font-semibold" data-i18n="privacy-info-third-party-platforms-label">Other
@@ -94,9 +100,9 @@
                         <li><strong class="font-medium" data-i18n="privacy-info-third-party-tools-docs-label">Document
                                 Sharing:</strong> <span data-i18n="privacy-info-third-party-tools-docs-text">Google
                                 Drive</span></li>
-                        <li><strong class="font-medium" data-i18n="privacy-info-third-party-tools-crm-label">Client
+                        <!-- <li><strong class="font-medium" data-i18n="privacy-info-third-party-tools-crm-label">Client
                                 Management:</strong> <span data-i18n="privacy-info-third-party-tools-crm-text">[Name of
-                                CRM or Client Management System]</span></li>
+                                CRM or Client Management System]</span></li> -->
                         <!-- <li><strong class="font-medium"
                                 data-i18n="privacy-info-third-party-tools-planning-label">Financial Planning
                                 Software:</strong> <span data-i18n="privacy-info-third-party-tools-planning-text">[Name
@@ -147,7 +153,7 @@
                 Retention Policy</h3>
             <p class="mb-6" data-i18n="privacy-section-4-text">We retain your personal information for as long as
                 necessary to provide our services and to comply with our legal obligations. We will securely delete or
-                anonymize your data after a period of [e.g., three years] following the completion of your program, or
+                anonymize your data after a period of three years following the completion of your program, or
                 as required by law.</p>
 
             <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="privacy-section-5-title">5. Your
@@ -206,9 +212,9 @@
 
             <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="privacy-section-10-title">10. Contact
                 Us</h3>
-            <p class="mb-6" data-i18n="privacy-section-10-text">If you have any questions or concerns about this Privacy
-                Policy, please contact us at: <a href="mailto:legal@dff.life"
-                    class="text-indigo-600 hover:underline">legal@dff.life</a></p>
+            <span><p class="mb-6" data-i18n="privacy-section-10-text">If you have any questions or concerns about this Privacy
+                Policy, please contact us at:</p><a href="mailto:legal@dff.life"
+                    class="text-indigo-600 hover:underline">legal@dff.life</a></span>
         </section>
     </div>
 </body>

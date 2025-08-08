@@ -1,7 +1,5 @@
 function languageToggle() {
-  const currentLanguage = localStorage.getItem('language') || 'es';
-  const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
-
+  const newLanguage = getLanguage() === 'es' ? 'en' : 'es';
   fetch(`i18n/${newLanguage}.json`)
     .then(response => response.json())
     .then(data => {
@@ -25,7 +23,7 @@ function updateContent(data) {
 function getLanguage() {
   // This is a simplified example. In a real application, you might use a cookie
   // or a more robust method to store the user's choice.
-  const userLang = navigator.language || navigator.userLanguage;
+  const userLang = localStorage.getItem('language') ?? navigator.language ?? navigator.userLanguage;
   return userLang.startsWith('es') ? 'es' : 'en'; // Defaults to English
 }
 
