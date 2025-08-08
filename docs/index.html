@@ -37,11 +37,12 @@
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="res/style.css">
+    <!-- Custom Styles and Scripts -->
+    <link rel="stylesheet" href="style/main.css">
+    <script src="scripts/main.js"></script>
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
-
     <div id="under-construction-overlay"
         class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-90 transition-opacity duration-500">
         <div
@@ -62,7 +63,7 @@
         <div class="container mx-auto px-4 flex justify-between items-center">
             <!-- Logo/Business Name -->
             <div class="logo">
-                <a href="index.html" id="designed_financial_freedom"
+                <a href="#" id="designed_financial_freedom"
                     class="text-2xl font-bold text-indigo-700 hover:text-indigo-800 transition duration-300"
                     data-i18n="designed_financial_freedom">Designed
                     Financial Freedom</a>
@@ -334,10 +335,13 @@
                     we can help you achieve
                     your financial goals and live a life aligned with your values.</p>
                 <div class="contact-methods text-lg text-gray-700 mb-10 space-y-4">
-                    <p data-i18n="email"><strong>Email:</strong> <a href="mailto:hello@dff.life"
-                            class="text-indigo-600 hover:underline">hello@dff.life</a></p>
-                    <p data-i18n="book_a_free_discovery_call"><strong>Book a Free Discovery Call:</strong> <a
-                            href="#contact" class="text-indigo-600 hover:underline">Schedule Here</a></p>
+                    <span class="flex items-center justify-center">
+                        <strong><p data-i18n="email">Email:</p></strong>&nbsp;
+                        <a href="mailto:hello@dff.life" class="text-indigo-600 hover:underline">hello@dff.life</a></span>
+                    <span class="flex items-center justify-center">
+                        <strong><p data-i18n="book_a_free_discovery_call">Book a Free Discovery Call:</p></strong>&nbsp;
+                        <a href="#contact" class="text-indigo-600 hover:underline">Schedule Here</a>
+                    </span>
                     <p id="connect_on_social" data-i18n="connect_on_social"><strong>Connect on Social:</strong>
                         <a href="#" target="_blank" class="text-indigo-600 hover:underline mr-4">Instagram</a>
                         <a href="#" target="_blank" class="text-indigo-600 hover:underline mr-4">Facebook</a>
@@ -359,20 +363,16 @@
                 Financial Freedom (DFF). All
                 rights reserved.</p>
             <ul class="flex space-x-6">
-                <li><a href="#" id="privacy_policy" class="hover:text-indigo-400 transition duration-300"
+                <li><a href="./privacy" id="privacy_policy" class="hover:text-indigo-400 transition duration-300"
                         data-i18n="privacy_policy">Privacy
                         Policy</a></li>
-                <li><a href="#" id="terms_of_service" class="hover:text-indigo-400 transition duration-300"
+                <li><a href="./terms" id="terms_of_service" class="hover:text-indigo-400 transition duration-300"
                         data-i18n="terms_of_service">Terms
                         of Service</a></li>
                 <!-- Add other footer links like disclaimers etc. -->
             </ul>
         </div>
     </footer>
-    <!-- Custom Button Styles (can be moved to style.css if preferred) -->
-    <link rel="stylesheet" href="res/style.css">
-    <script src="res/script.js"></script>
-
 </body>
 
-</html ``` Cheers, C.
+</html>

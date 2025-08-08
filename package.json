@@ -10,7 +10,8 @@
     "format:check": "prettier --check \"docs/**/*.{html,css,js}\"",
     "lint": "htmlhint docs/**/*.html",
     "build": "echo 'No build step required for static site'",
-    "deploy": "echo 'Deploy via GitHub Pages'"
+    "deploy": "echo 'Deploy via GitHub Pages'",
+    "i18n": "node docs/scripts/i18n.js"
   },
   "keywords": [
     "financial-coaching",
@@ -23,6 +24,7 @@
   "author": "Designed Financial Freedom (DFF)",
   "license": "MIT",
   "devDependencies": {
+    "cheerio": "^1.1.2",
     "htmlhint": "^1.1.4",
     "prettier": "^3.1.0",
     "serve": "^14.2.1"
