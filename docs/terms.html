@@ -17,9 +17,28 @@
 
 <body class="bg-gray-50 text-gray-800">
     <div class="max-w-4xl mx-auto p-8 lg:p-12 bg-white rounded-xl shadow-lg mt-8 mb-8">
+        
+    <div id="under-construction-overlay"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-90 transition-opacity duration-500">
+        <div
+            class="max-w-md p-8 bg-white rounded-lg shadow-xl text-center transform scale-95 transition-transform duration-500">
+            <h1 id="under_construction" class="text-3xl font-bold text-gray-800 mb-4" data-i18n="under_construction">
+                Under Construction</h1>
+            <p id="construction_message" class="text-gray-600 mb-6" data-i18n="construction_message">
+                We're working hard to get this page ready for you. Please check back soon for more updates!
+            </p>
+            <button id="continue-button" data-i18n="continue"
+                class="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Continue
+            </button>
+        </div>
+    </div>
         <header class="text-center mb-12">
-            <h1 class="text-4xl font-extrabold text-indigo-800 mb-2" data-i18n="designed_financial_freedom">Designed
-                    Financial Freedom</h1>
+            <div class="logo">
+                <a href="/" id="about_header_logo" data-i18n="about_header_logo"
+                    class="text-4xl font-bold text-indigo-700 hover:text-indigo-800 transition duration-300">Designed
+                    Financial Freedom</a>
+            </div>
             <p class="text-xl text-gray-500" data-i18n="tos-header-subtitle">Terms of Service</p>
         </header>
 
