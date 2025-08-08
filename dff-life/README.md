@@ -6,6 +6,12 @@ Make sure you are in the right directory
 Note: Using DOCKER_HOST over TCP (in home network)
 - `env | grep DOCKER_HOST`
 
+make sure to isntall dependencies
+- `pnpm install`
+
+make sure to have a `.env` file
+- `cp .env.exmaple .env`
+
 Start the database
 - `pnpm db:start`
 
