@@ -8,6 +8,7 @@ All notable changes to the DFF.life project will be documented in this file.
 - Started to add localization, not much content though.
 - Added specific Privacy policy and Terms of Service documentation.
 - Added the About Us page
+- Changed from Terms of Service to Terms and Conditions
 
 ## v0.0.0
 
