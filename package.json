@@ -5,13 +5,12 @@
   "main": "docs/index.html",
   "private": true,
   "scripts": {
-    "dev": "npx serve docs --listen 3000",
-    "format": "prettier --write \"docs/**/*.{html,css,js}\"",
-    "format:check": "prettier --check \"docs/**/*.{html,css,js}\"",
-    "lint": "htmlhint docs/**/*.html",
-    "build": "echo 'No build step required for static site'",
-    "deploy": "echo 'Deploy via GitHub Pages'",
-    "i18n": "node docs/scripts/i18n.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{html,css,js}\"",
+    "format:check": "prettier --check \"src/**/*.{html,css,js}\"",
+    "lint": "htmlhint **/*.html"
   },
   "keywords": [
     "financial-coaching",
