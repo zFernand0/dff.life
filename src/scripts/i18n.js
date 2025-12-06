@@ -14,5 +14,5 @@ $('[data-i18n]').each((_, el) => {
   i18n[key] = value;
 });
 
-fs.writeFileSync('./en.json', JSON.stringify(i18n, null, 2), 'utf8');
-console.log('Extracted', Object.keys(i18n).length, 'strings to en.json');
+fs.writeFileSync('./public/i18n/en.json', JSON.stringify(i18n, null, 2), 'utf8');
+console.log('Extracted', Object.keys(i18n).length, 'strings to public/i18n/en.json');

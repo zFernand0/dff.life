@@ -8,6 +8,7 @@ function languageToggle() {
     })
     .catch(error => console.error('Error loading language file:', error));
 }
+window.languageToggle = languageToggle;
 
 function updateContent(data) {
   for (const key in data) {
