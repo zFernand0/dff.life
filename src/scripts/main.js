@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = Date.now();
     const fiveMinutes = 5 * 60 * 1000;
 
-    if (dismissedAt && (now - parseInt(dismissedAt, 10)) < fiveMinutes) {
+    if (dismissedAt && now - parseInt(dismissedAt, 10) < fiveMinutes) {
       // If dismissed less than 5 minutes ago, remove it immediately
       overlay.remove();
     }
