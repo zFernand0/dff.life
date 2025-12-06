@@ -10,6 +10,8 @@ All notable changes to the DFF.life project will be documented in this file.
 - Added the About Us page
 - Changed from Terms of Service to Terms and Conditions
 - Added one-pagers for credit score and credit card management guide and example
+- Added husky pre-push hook to enforce build process
+- Migrate to Vite
 
 ## v0.0.0
 
