@@ -6,6 +6,7 @@
   "mission": "Mission",
   "our_story": "Our Story",
   "who_we_help": "Who We Help",
+  "about_us": "About Us",
   "who_we_help_long": "Who We Help:\nFind Your Path to Financial Freedom",
   "contact": "Contact",
   "espanol": "Español",
@@ -49,7 +50,6 @@
   "all_rights_reserved": "© 2025 Designed Financial Freedom (DFF). All rights reserved.",
   "privacy_policy": "Privacy Policy",
   "terms-and-conditions": "Terms and Conditions",
-
   "privacy-header-title": "Privacy Policy | Designed Financial Freedom (DFF)",
   "privacy-policy-title": "Privacy Policy",
   "privacy-effective-date-label": "**Effective Date:** Aug/31/2025",
@@ -120,7 +120,6 @@
   "privacy-section-9-text": "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on our website and updating the \"Effective Date\" at the top of this document. Your continued use of the Services after such changes constitutes your acceptance of the updated policy.",
   "privacy-section-10-title": "10. Contact Us",
   "privacy-section-10-text": "If you have any questions or concerns about this Privacy Policy, please contact us at:",
-
   "tnc-page-title": "Terms and Conditions | Designed Financial Freedom (DFF)",
   "tnc-about_header_logo": "Designed Financial Freedom",
   "tnc-header-subtitle": "Terms and Conditions",
@@ -154,7 +153,6 @@
   "tnc-section-8-text": "These Terms shall be governed by and construed in accordance with the laws of the State of Pennsylvania, without regard to its conflict of law principles.",
   "tnc-section-9-title": "9. Contact Us",
   "tnc-section-9-text": "If you have any questions about these Terms, please contact us at:",
-
   "about_page_title": "About Us | Designed Financial Freedom (DFF)",
   "about_header_logo": "Designed Financial Freedom",
   "about_nav_home": "Home",

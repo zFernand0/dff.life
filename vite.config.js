@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -8,6 +9,9 @@ const __dirname = dirname(__filename);
 export default defineConfig({
     root: 'src',
     publicDir: '../public',
+    plugins: [
+        ViteMinifyPlugin({}),
+    ],
     build: {
         outDir: '../docs',
         emptyOutDir: true,
