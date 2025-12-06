@@ -9,7 +9,7 @@
     "dev": "vite",
     "prod": "npx serve docs",
     "build": "vite build",
-    "deploy": "npm run build && git add docs && git commit -m \"Update build\" && git push",
+    "deploy": "npm run format && npm run build && git add docs && git commit -m \"Update build\" && git push",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{html,css,js}\"",
     "format:check": "prettier --check \"src/**/*.{html,css,js}\"",
