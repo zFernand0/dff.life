@@ -29,6 +29,7 @@
     "autoprefixer": "^10.4.22",
     "cheerio": "^1.1.2",
     "htmlhint": "^1.1.4",
+    "husky": "^9.1.7",
     "prettier": "^3.1.0",
     "serve": "^14.2.1",
     "tailwindcss": "^4.1.17",
