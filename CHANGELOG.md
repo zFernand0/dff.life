@@ -2,6 +2,10 @@
 
 All notable changes to the DFF.life project will be documented in this file.
 
+## Recent Changes
+
+- 
+
 ## v0.1.1
 
 - Fixed small issues with buttons not working and navigation being inconsistent
