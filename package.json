@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Designed Financial Freedom (DFF) - Financial Coaching for a Purposeful Life",
   "main": "docs/index.html",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -23,12 +24,16 @@
   "author": "Designed Financial Freedom (DFF)",
   "license": "MIT",
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "autoprefixer": "^10.4.22",
     "cheerio": "^1.1.2",
     "htmlhint": "^1.1.4",
     "prettier": "^3.1.0",
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "tailwindcss": "^4.1.17",
+    "vite": "^7.2.6"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=22.0.0"
   }
 }
