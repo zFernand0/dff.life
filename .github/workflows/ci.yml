@@ -21,5 +21,17 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Deploy
-      run: npm run deploy
+    - name: Format
+      run: npm run format
+
+    - name: Build
+      run: npm run build
+
+    - name: Update docs
+      run: |
+        git add docs
+        git commit -m "Update build"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
