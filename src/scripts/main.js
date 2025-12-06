@@ -11,12 +11,13 @@ function languageToggle() {
 window.languageToggle = languageToggle;
 
 function updateContent(data) {
-  for (const key in data) {
-    const element = document.getElementById(key);
-    if (element) {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (data[key]) {
       element.innerHTML = String(data[key]).replace(/\n/g, '<br/>');
     }
-  }
+  });
 }
 
 // A simple function to get the user's preferred language
@@ -71,8 +72,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const continueButton = document.getElementById('continue-button');
 
   if (overlay && continueButton) {
+    // Check if the overlay was recently dismissed
+    const dismissedAt = localStorage.getItem('overlay_dismissed_at');
+    const now = Date.now();
+    const fiveMinutes = 5 * 60 * 1000;
+
+    if (dismissedAt && now - parseInt(dismissedAt, 10) < fiveMinutes) {
+      // If dismissed less than 5 minutes ago, remove it immediately
+      overlay.remove();
+    }
+
     // Add a click event listener to the "Continue" button
     continueButton.addEventListener('click', () => {
+      // Store the current timestamp
+      localStorage.setItem('overlay_dismissed_at', Date.now());
+
       // Add Tailwind classes to hide the overlay with a smooth transition
       overlay.classList.add('opacity-0', 'pointer-events-none');
 

@@ -1,6 +1,6 @@
 {
   "name": "dff-life",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Designed Financial Freedom (DFF) - Financial Coaching for a Purposeful Life",
   "main": "docs/index.html",
   "type": "module",
@@ -11,8 +11,8 @@
     "build": "vite build",
     "deploy": "npm run format && npm run build && git add docs && git commit -m \"Update build\" && git push",
     "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{html,css,js}\"",
-    "format:check": "prettier --check \"src/**/*.{html,css,js}\"",
+    "format": "prettier --write \"src/**/*.{css,js}\"",
+    "format:check": "prettier --check \"src/**/*.{css,js}\"",
     "lint": "htmlhint **/*.html"
   },
   "keywords": [
@@ -34,6 +34,7 @@
     "serve": "^14.2.1",
     "tailwindcss": "^4.1.17",
     "vite": "^7.2.6",
+    "vite-plugin-handlebars": "^2.0.0",
     "vite-plugin-minify": "^2.1.0"
   },
   "engines": {
