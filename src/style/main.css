@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+/* Custom styles for Inter font and smooth scrolling */
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Custom Button Styles (can be moved to style.css if preferred) */
+.btn-primary,
+.btn-secondary,
+.btn-card {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  /* Rounded corners */
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  /* Indigo-600 */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+  /* Indigo-700 */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  border: 2px solid #4f46e5;
+  /* Indigo-600 */
+  color: #4f46e5;
+}
+
+.btn-secondary:hover {
+  background-color: #4f46e5;
+  color: white;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-card {
+  display: block;
+  /* Make card buttons full width */
+  width: 100%;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+}

@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "Designed Financial Freedom (DFF) - Financial Coaching for a Purposeful Life",
   "main": "docs/index.html",
+  "type": "module",
   "private": true,
   "scripts": {
-    "dev": "npx serve docs --listen 3000",
-    "format": "prettier --write \"docs/**/*.{html,css,js}\"",
-    "format:check": "prettier --check \"docs/**/*.{html,css,js}\"",
-    "lint": "htmlhint docs/**/*.html",
-    "build": "echo 'No build step required for static site'",
-    "deploy": "echo 'Deploy via GitHub Pages'",
-    "i18n": "node docs/scripts/i18n.js"
+    "dev": "vite",
+    "prod": "npx serve docs",
+    "build": "vite build",
+    "deploy": "npm run format && npm run build && git add docs && git commit -m \"Update build\" && git push",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{html,css,js}\"",
+    "format:check": "prettier --check \"src/**/*.{html,css,js}\"",
+    "lint": "htmlhint **/*.html"
   },
   "keywords": [
     "financial-coaching",
@@ -24,12 +26,17 @@
   "author": "Designed Financial Freedom (DFF)",
   "license": "MIT",
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "autoprefixer": "^10.4.22",
     "cheerio": "^1.1.2",
     "htmlhint": "^1.1.4",
     "prettier": "^3.1.0",
-    "serve": "^14.2.1"
+    "serve": "^14.2.1",
+    "tailwindcss": "^4.1.17",
+    "vite": "^7.2.6",
+    "vite-plugin-minify": "^2.1.0"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=22.0.0"
   }
 }
