@@ -11,12 +11,13 @@ function languageToggle() {
 window.languageToggle = languageToggle;
 
 function updateContent(data) {
-  for (const key in data) {
-    const element = document.getElementById(key);
-    if (element) {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (data[key]) {
       element.innerHTML = String(data[key]).replace(/\n/g, '<br/>');
     }
-  }
+  });
 }
 
 // A simple function to get the user's preferred language

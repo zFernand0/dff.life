@@ -4,7 +4,8 @@
 <head>
   {{> head title="About Us | Designed Financial Freedom (DFF)" description="Learn about the mission, vision, and values
   of Designed Financial Freedom (DFF), and meet the
-  founders, Candy and Fernando, who help clients achieve financial freedom." path="/about" }}
+  founders, Candy and Fernando, who help clients achieve financial freedom." path="/about" title_id="about_page_title"
+  }}
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
@@ -40,19 +41,7 @@
       </div>
     </section>
 
-    <!-- Our Mission Section -->
-    <section id="about_mission_section" class="py-16 md:py-24 bg-white">
-      <div class="container mx-auto px-4 max-w-4xl text-center">
-        <h2 id="about_mission_heading" data-i18n="about_mission_heading"
-          class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
-        <p id="about_mission_text" data-i18n="about_mission_text"
-          class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-          To provide personalized, actionable, and empathetic guidance that simplifies complex financial concepts,
-          builds sustainable habits, and equips our clients with the
-          tools and knowledge to achieve lasting financial freedom.
-        </p>
-      </div>
-    </section>
+    {{> mission}}
 
     <!-- Our Vision Section (Thoughtful) -->
     <section id="about_vision_section" class="py-16 md:py-24 bg-white">
@@ -122,21 +111,13 @@
     <!-- Our Story Section (Now Collapsible) -->
     <section id="about_our_story" class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-4 max-w-5xl">
-        <details class="group">
-          <summary
-            class="flex justify-between items-center cursor-pointer list-none text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-            <h2 id="about_story_heading" data-i18n="about_story_heading">
-              Our Journey:
-              <br />
-              From Debt to Designed Freedom
-            </h2>
-            <span class="transform transition-transform duration-300 group-open:rotate-180">
-              <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </span>
-          </summary>
+        <div class="group">
+          <h2 id="about_story_heading" data-i18n="about_story_heading"
+            class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+            Our Journey:
+            <br />
+            From Debt to Designed Freedom
+          </h2>
           <div class="story-content space-y-8 text-lg text-gray-700 leading-relaxed pt-8">
             <p id="about_story_p1" data-i18n="about_story_p1">
               We are Candy and Fernando, and our financial journey is deeply rooted in our experience as immigrants from
@@ -225,7 +206,7 @@
               right strategies and a clear understanding of your values, anyone can transform their financial life.
             </p>
           </div>
-        </details>
+        </div>
       </div>
     </section>
 
