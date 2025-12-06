@@ -1,221 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="tnc-page-title">Financial Coaching Terms and Conditions</title>
-    <!-- Tailwind CSS CDN -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- Google Font: Inter -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-    />
-    <!-- Custom Styles and Scripts -->
-    <link rel="stylesheet" href="style/main.css" />
-    <script type="module" src="scripts/main.js"></script>
-  </head>
 
-  <body class="bg-gray-50 text-gray-800">
-    <div class="max-w-4xl mx-auto p-8 lg:p-12 bg-white rounded-xl shadow-lg mt-8 mb-8">
-      <div
-        id="under-construction-overlay"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-90 transition-opacity duration-500"
-      >
-        <div
-          class="max-w-md p-8 bg-white rounded-lg shadow-xl text-center transform scale-95 transition-transform duration-500"
-        >
-          <h1
-            id="under_construction"
-            class="text-3xl font-bold text-gray-800 mb-4"
-            data-i18n="under_construction"
-          >
-            Under Construction
-          </h1>
-          <p id="construction_message" class="text-gray-600 mb-6" data-i18n="construction_message">
-            We're working hard to get this page ready for you. Please check back soon for more
-            updates!
-          </p>
-          <button
-            id="continue-button"
-            data-i18n="continue"
-            class="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-          >
-            Continue
-          </button>
-        </div>
-      </div>
-      <header class="text-center mb-12">
-        <div class="logo">
-          <a
-            href="/"
-            id="tnc-about_header_logo"
-            data-i18n="tnc-about_header_logo"
-            class="text-4xl font-bold text-indigo-700 hover:text-indigo-800 transition duration-300"
-          >
-            Designed Financial Freedom
-          </a>
-        </div>
-        <p class="text-xl text-gray-500" data-i18n="tnc-header-subtitle">Terms and Conditions</p>
-      </header>
+<head>
+  {{> head title="Terms and Conditions | Designed Financial Freedom (DFF)" description="Terms and Conditions for
+  Designed Financial Freedom (DFF)." path="/terms" }}
+</head>
 
-      <!-- TERMS AND CONDITIONS -->
-      <section id="tnc-terms-and-conditions" class="mb-12">
-        <span class="flex items-center justify-between mb-6">
-          <h2
-            class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-indigo-200 pb-2"
-            data-i18n="tnc-terms-and-conditions-title"
-          >
-            Terms and Conditions
-          </h2>
-          <a href="./terms">
-            <button
-              onclick="languageToggle()"
-              id="tnc-espanol"
-              class="btn-secondary border-2 text-indigo-600 font-semibold transition duration-300"
-              data-i18n="tnc-espanol"
-            >
-              Español
-            </button>
-          </a>
-        </span>
-        <p class="text-sm text-gray-500 mb-4" data-i18n="tnc-effective-date-label">
-          **Effective Date:** Aug/31/2025
+<body class="bg-gray-50 text-gray-800">
+  {{> wip}}
+
+  {{> header }}
+
+  <div class="max-w-4xl mx-auto p-8 lg:p-12 bg-white rounded-xl shadow-lg mt-8 mb-8">
+    <h1 class="text-3xl font-bold text-center mb-12 text-gray-900" data-i18n="tnc-header-subtitle">Terms and Conditions
+    </h1>
+
+    <!-- TERMS AND CONDITIONS -->
+    <section id="tnc-terms-and-conditions" class="mb-12">
+      <p class="text-sm text-gray-500 mb-4" data-i18n="tnc-effective-date-label">
+        **Effective Date:** Aug/31/2025
+      </p>
+      <p class="mb-6" data-i18n="tnc-terms-intro-1">
+        These Terms and Conditions ("Terms") govern your use of the financial coaching services
+        (the "Services") provided by Designed Financial Freedom ("we," "us," or "our"). By
+        engaging with our Services, you agree to be bound by these Terms.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-1-title">
+        1. The Services
+      </h3>
+      <p class="mb-4" data-i18n="tnc-section-1-text">
+        Our Services are designed to provide financial education, guidance, and accountability
+        through a structured coaching process. Our goal is to help you gain clarity, reduce
+        financial stress, and work towards your financial goals. The specific details, structure,
+        and deliverables of your program will be agreed upon separately and in writing.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-2-title">
+        2. Client Responsibilities
+      </h3>
+      <ul class="list-disc list-inside space-y-2 mb-6">
+        <li>
+          <strong class="font-semibold" data-i18n="tnc-section-2-active-participation-label">
+            Active Participation:
+          </strong>
+          <span data-i18n="tnc-section-2-active-participation-text">
+            To achieve the best results, you agree to actively participate in all sessions,
+            complete assigned tasks, and provide accurate and timely financial information.
+          </span>
+        </li>
+        <li>
+          <strong class="font-semibold" data-i18n="tnc-section-2-confidentiality-label">
+            Confidentiality:
+          </strong>
+          <span data-i18n="tnc-section-2-confidentiality-text">
+            We will treat all of your financial and personal information with confidentiality.
+            However, you are responsible for maintaining the confidentiality of any information or
+            resources we provide to you.
+          </span>
+        </li>
+      </ul>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-3-title">
+        3. Payment Terms
+      </h3>
+      <ul class="list-disc list-inside space-y-2 mb-6">
+        <li>
+          <strong class="font-semibold" data-i18n="tnc-section-3-program-fee-label">
+            Program Fee:
+          </strong>
+          <span data-i18n="tnc-section-3-program-fee-text">
+            The total fee for your specific program will be outlined in your separate program
+            agreement.
+          </span>
+        </li>
+        <li>
+          <strong class="font-semibold" data-i18n="tnc-section-3-deposit-label">Deposit:</strong>
+          <span data-i18n="tnc-section-3-deposit-text">
+            A non-refundable deposit is required to secure your commitment and reserve your
+            program slot. This deposit amount will be specified in your program agreement and
+            applied towards the total program fee.
+          </span>
+        </li>
+        <li>
+          <strong class="font-semibold" data-i18n="tnc-section-3-payment-options-label">
+            Payment Options:
+          </strong>
+          <span data-i18n="tnc-section-3-payment-options-text">
+            We may offer various payment options, including upfront payment and installment plans
+            through a third-party service ([e.g., Affirm, Klarna]). All payment details will be
+            agreed upon in your program agreement.
+          </span>
+        </li>
+      </ul>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-4-title">
+        4. Disclaimer of Financial Advice
+      </h3>
+      <p class="mb-6" data-i18n="tnc-section-4-text">
+        We are financial coaches, not licensed financial advisors, accountants, or lawyers. The
+        information and guidance we provide are for educational and informational purposes only.
+        We do not provide financial, legal, or tax advice. You are solely responsible for all
+        financial decisions you make. We encourage you to consult with a qualified professional
+        before making any financial decisions.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-5-title">
+        5. Intellectual Property
+      </h3>
+      <p class="mb-6" data-i18n="tnc-section-5-text">
+        All materials, including workbooks, tools, templates, and program content provided to you,
+        are the intellectual property of Designed Financial Freedom. You are granted a limited,
+        non-exclusive, non-transferable license to use these materials for your personal use
+        during and after the program. You may not copy, reproduce, distribute, or otherwise use
+        these materials for any commercial purpose without our express written consent.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-6-title">
+        6. Limitation of Liability
+      </h3>
+      <p class="mb-6" data-i18n="tnc-section-6-text">
+        To the fullest extent permitted by law, Designed Financial Freedom shall not be liable for
+        any direct, indirect, incidental, special, or consequential damages resulting from your
+        use of our Services. Our total liability to you for any and all claims shall not exceed
+        the amount you paid for the Services.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-7-title">
+        7. Termination
+      </h3>
+      <p class="mb-6" data-i18n="tnc-section-7-text">
+        We reserve the right to terminate our Services to you at any time for any reason,
+        including but not limited to, a breach of these Terms. If you wish to terminate the
+        Services, please provide written notice. The non-refundable deposit will be retained upon
+        any termination.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-8-title">
+        8. Governing Law
+      </h3>
+      <p class="mb-6" data-i18n="tnc-section-8-text">
+        These Terms shall be governed by and construed in accordance with the laws of the State of
+        Pennsylvania, without regard to its conflict of law principles.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-9-title">
+        9. Contact Us
+      </h3>
+      <span>
+        <p class="mb-6" data-i18n="tnc-section-9-text">
+          If you have any questions about these Terms, please contact us at:
         </p>
-        <p class="mb-6" data-i18n="tnc-terms-intro-1">
-          These Terms and Conditions ("Terms") govern your use of the financial coaching services
-          (the "Services") provided by Designed Financial Freedom ("we," "us," or "our"). By
-          engaging with our Services, you agree to be bound by these Terms.
-        </p>
+        <a href="mailto:legal@dff.life" class="text-indigo-600 hover:underline">legal@dff.life</a>
+      </span>
+    </section>
+  </div>
+</body>
 
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-1-title">
-          1. The Services
-        </h3>
-        <p class="mb-4" data-i18n="tnc-section-1-text">
-          Our Services are designed to provide financial education, guidance, and accountability
-          through a structured coaching process. Our goal is to help you gain clarity, reduce
-          financial stress, and work towards your financial goals. The specific details, structure,
-          and deliverables of your program will be agreed upon separately and in writing.
-        </p>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-2-title">
-          2. Client Responsibilities
-        </h3>
-        <ul class="list-disc list-inside space-y-2 mb-6">
-          <li>
-            <strong class="font-semibold" data-i18n="tnc-section-2-active-participation-label">
-              Active Participation:
-            </strong>
-            <span data-i18n="tnc-section-2-active-participation-text">
-              To achieve the best results, you agree to actively participate in all sessions,
-              complete assigned tasks, and provide accurate and timely financial information.
-            </span>
-          </li>
-          <li>
-            <strong class="font-semibold" data-i18n="tnc-section-2-confidentiality-label">
-              Confidentiality:
-            </strong>
-            <span data-i18n="tnc-section-2-confidentiality-text">
-              We will treat all of your financial and personal information with confidentiality.
-              However, you are responsible for maintaining the confidentiality of any information or
-              resources we provide to you.
-            </span>
-          </li>
-        </ul>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-3-title">
-          3. Payment Terms
-        </h3>
-        <ul class="list-disc list-inside space-y-2 mb-6">
-          <li>
-            <strong class="font-semibold" data-i18n="tnc-section-3-program-fee-label">
-              Program Fee:
-            </strong>
-            <span data-i18n="tnc-section-3-program-fee-text">
-              The total fee for your specific program will be outlined in your separate program
-              agreement.
-            </span>
-          </li>
-          <li>
-            <strong class="font-semibold" data-i18n="tnc-section-3-deposit-label">Deposit:</strong>
-            <span data-i18n="tnc-section-3-deposit-text">
-              A non-refundable deposit is required to secure your commitment and reserve your
-              program slot. This deposit amount will be specified in your program agreement and
-              applied towards the total program fee.
-            </span>
-          </li>
-          <li>
-            <strong class="font-semibold" data-i18n="tnc-section-3-payment-options-label">
-              Payment Options:
-            </strong>
-            <span data-i18n="tnc-section-3-payment-options-text">
-              We may offer various payment options, including upfront payment and installment plans
-              through a third-party service ([e.g., Affirm, Klarna]). All payment details will be
-              agreed upon in your program agreement.
-            </span>
-          </li>
-        </ul>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-4-title">
-          4. Disclaimer of Financial Advice
-        </h3>
-        <p class="mb-6" data-i18n="tnc-section-4-text">
-          We are financial coaches, not licensed financial advisors, accountants, or lawyers. The
-          information and guidance we provide are for educational and informational purposes only.
-          We do not provide financial, legal, or tax advice. You are solely responsible for all
-          financial decisions you make. We encourage you to consult with a qualified professional
-          before making any financial decisions.
-        </p>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-5-title">
-          5. Intellectual Property
-        </h3>
-        <p class="mb-6" data-i18n="tnc-section-5-text">
-          All materials, including workbooks, tools, templates, and program content provided to you,
-          are the intellectual property of Designed Financial Freedom. You are granted a limited,
-          non-exclusive, non-transferable license to use these materials for your personal use
-          during and after the program. You may not copy, reproduce, distribute, or otherwise use
-          these materials for any commercial purpose without our express written consent.
-        </p>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-6-title">
-          6. Limitation of Liability
-        </h3>
-        <p class="mb-6" data-i18n="tnc-section-6-text">
-          To the fullest extent permitted by law, Designed Financial Freedom shall not be liable for
-          any direct, indirect, incidental, special, or consequential damages resulting from your
-          use of our Services. Our total liability to you for any and all claims shall not exceed
-          the amount you paid for the Services.
-        </p>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-7-title">
-          7. Termination
-        </h3>
-        <p class="mb-6" data-i18n="tnc-section-7-text">
-          We reserve the right to terminate our Services to you at any time for any reason,
-          including but not limited to, a breach of these Terms. If you wish to terminate the
-          Services, please provide written notice. The non-refundable deposit will be retained upon
-          any termination.
-        </p>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-8-title">
-          8. Governing Law
-        </h3>
-        <p class="mb-6" data-i18n="tnc-section-8-text">
-          These Terms shall be governed by and construed in accordance with the laws of the State of
-          Pennsylvania, without regard to its conflict of law principles.
-        </p>
-
-        <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4" data-i18n="tnc-section-9-title">
-          9. Contact Us
-        </h3>
-        <span>
-          <p class="mb-6" data-i18n="tnc-section-9-text">
-            If you have any questions about these Terms, please contact us at:
-          </p>
-          <a href="mailto:legal@dff.life" class="text-indigo-600 hover:underline">legal@dff.life</a>
-        </span>
-      </section>
-    </div>
-  </body>
 </html>

@@ -34,6 +34,7 @@
     "serve": "^14.2.1",
     "tailwindcss": "^4.1.17",
     "vite": "^7.2.6",
+    "vite-plugin-handlebars": "^2.0.0",
     "vite-plugin-minify": "^2.1.0"
   },
   "engines": {
