@@ -5,6 +5,7 @@ All notable changes to the DFF.life project will be documented in this file.
 ## Recent Changes
 
 - Fixed about page with the correct text. [#64](https://github.com/zfernand0/dff.life/issues/64)
+- Added Intentional Spending Plan page. [#70](https://github.com/zfernand0/dff.life/issues/70)
 
 ## v0.1.1
 
