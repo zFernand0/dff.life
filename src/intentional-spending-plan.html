@@ -30,14 +30,43 @@
         input[type="number"] {
             -moz-appearance: textfield;
         }
+
+        /* Style for printing (hides buttons/forms) */
+        @media print {
+
+            .print\:hidden,
+            .print\:hidden * {
+                display: none !important;
+            }
+
+            body {
+                background-color: #fff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container,
+            .bg-white,
+            #app {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+            }
+
+            /* Ensure the content is fully visible */
+            #main-content {
+                display: block !important;
+            }
+        }
     </style>
 </head>
 
 <body class="p-4 md:p-8">
     <div id="app" class="container mx-auto">
+
         <!-- Status Message Box -->
-        <div id="status-message" class="fixed top-4 right-4 bg-red-500 text-white p-3 rounded-lg shadow-xl hidden z-50">
-        </div>
+        <div id="status-message"
+            class="fixed top-4 right-4 bg-red-500 text-white p-3 rounded-lg shadow-xl hidden z-50 print:hidden"></div>
 
         <div class="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-purple-500">
             <h2 class="text-3xl font-extrabold mb-6 text-gray-800 flex items-center">
@@ -45,21 +74,21 @@
                 Intentional Spending Plan (Monthly)
             </h2>
 
-            <div id="loading" class="text-center py-10">
-                <p class="text-gray-500 flex items-center justify-center">
-                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-purple-500" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
-                        </circle>
-                        <path class="opacity-75" fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                        </path>
-                    </svg>
-                    Loading your financial data...
-                </p>
+            <div id="loading" class="text-center py-10 hidden">
+                <!-- No loading needed since no remote data fetch -->
             </div>
 
-            <div id="main-content" class="space-y-8 hidden">
+            <div id="main-content" class="space-y-8">
+
+                <!-- Print Button -->
+                <div class="text-right pb-4 print:hidden">
+                    <button id="print-plan-btn"
+                        class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 flex items-center float-right">
+                        <i data-lucide="printer" class="w-5 h-5 mr-2"></i>
+                        Print/Export PDF
+                    </button>
+                </div>
+
                 <!-- Spending Summary -->
                 <div id="summary-section"
                     class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center p-4 bg-purple-50 rounded-xl shadow-inner">
@@ -73,7 +102,7 @@
                 <div id="guiltFreeSpendingSection"></div>
 
                 <!-- Global Clear Button -->
-                <div class="border-t pt-8 mt-8 text-center">
+                <div class="border-t pt-8 mt-8 text-center print:hidden">
                     <button id="global-clear-btn"
                         class="bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-red-700 transition duration-300 flex items-center mx-auto"
                         title="Danger: This will erase all your entered data.">
@@ -81,18 +110,17 @@
                         Clear Entire Plan
                     </button>
                     <p class="text-xs text-red-400 mt-2">Warning: This action will reset all sections to default (zero
-                        amounts).</p>
+                        amounts). Data will not persist after closing the browser tab.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Footer Content -->
         {{> footer}}
     </div>
 
     <!-- Confirmation Modal Structure -->
     <div id="confirmation-modal"
-        class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden">
+        class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden print:hidden">
         <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full">
             <h3 id="modal-title" class="text-xl font-bold text-gray-800 mb-4">Confirm Action</h3>
             <p id="modal-message" class="text-gray-600 mb-6">Are you sure you want to proceed?</p>
@@ -105,20 +133,11 @@
         </div>
     </div>
 
-    <!-- Firebase SDK Imports -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Global variables provided by the Canvas environment
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        let app, db, auth, userId;
+        // All Firebase imports and initialization have been removed. The application now runs purely client-side.
 
         // --- Global State ---
+        // State is initialized to empty, and defaults are merged in during rendering.
         let state = {
             incomeStreams: [],
             monthlyExpenses: [],
@@ -246,7 +265,6 @@
             const totalSavings = state.savingsGoals.reduce((acc, goal) => acc + (goal.amount || 0), 0);
             const totalGuiltFree = state.guiltFreeSpending.reduce((acc, exp) => acc + (exp.amount || 0), 0);
 
-            // Assuming totalMinPayments is 0 as we don't have that context in vanilla JS
             const totalMinPayments = 0;
 
             const effectiveGrossMonthlyIncome = totalIncomeFromStreams;
@@ -308,7 +326,7 @@
                             placeholder="Category Name"
                             ${disabledAttr}
                         />
-                        <div class="flex items-center space-x-2 mt-2 sm:mt-0">
+                        <div class="flex items-center space-x-2 mt-2 sm:mt-0 print:hidden">
                             <input
                                 type="number"
                                 value="${item.amount === 0 ? '' : item.amount}"
@@ -324,6 +342,7 @@
                                 <i data-lucide="trash-2" class="w-4 h-4"></i>
                             </button>
                         </div>
+                        <span class="font-semibold text-base sm:ml-4 mt-2 sm:mt-0 text-right w-28 print:block hidden">${formatCurrency(item.amount)}</span>
                     </li>
                 `;
             }).join('');
@@ -338,7 +357,7 @@
                         <button 
                             data-field="${fieldName}" 
                             data-action="clear-section" 
-                            class="text-sm text-red-500 hover:text-red-700 font-medium transition duration-300 flex items-center p-1 rounded-md border border-transparent hover:border-red-500" 
+                            class="text-sm text-red-500 hover:text-red-700 font-medium transition duration-300 flex items-center p-1 rounded-md border border-transparent hover:border-red-500 print:hidden" 
                             title="Clear all entries in this section">
                             <i data-lucide="x-circle" class="w-4 h-4 mr-1"></i>
                             Clear Section
@@ -350,7 +369,7 @@
                     </ul>
 
                     <!-- Custom Item Form -->
-                    <form data-field="${fieldName}" data-action="add-item" class="flex flex-col sm:flex-row gap-2 mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <form data-field="${fieldName}" data-action="add-item" class="flex flex-col sm:flex-row gap-2 mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200 print:hidden">
                         <input type="text" name="name" placeholder="Add Custom Item" class="flex-grow p-2 border border-gray-300 rounded-lg text-sm" required />
                         <input type="number" name="amount" placeholder="Amount ($)" class="w-full sm:w-32 p-2 border border-gray-300 rounded-lg text-sm" step="0.01" min="0" required />
                         <button type="submit" class="bg-${color}-600 text-white p-2 rounded-lg hover:bg-${color}-700 transition duration-300 flex items-center justify-center" title="Add Custom Item">
@@ -373,7 +392,6 @@
             renderSpendingList('savingsGoals', FIELD_MAP.savingsGoals.title);
             renderSpendingList('guiltFreeSpending', FIELD_MAP.guiltFreeSpending.title);
 
-            document.getElementById('loading').classList.add('hidden');
             document.getElementById('main-content').classList.remove('hidden');
         };
 
@@ -392,40 +410,7 @@
             pendingAction = null;
         };
 
-        // --- Firestore Operations ---
-
-        const updateSpendingPlanInFirestore = async (updatedData, fieldName) => {
-            if (!db || !userId) { showUserMessage("Database connection not ready."); return; }
-
-            // Clean data for storage: filter out $0 items that aren't custom, and remove temporary flags
-            const cleanedData = updatedData
-                .filter(item => (item.amount || 0) > 0 || item.isCustom)
-                .map(({ isDefault, isCustom, ...rest }) => rest);
-
-            try {
-                const spendingPlanDocRef = doc(db, 'artifacts', appId, 'users', userId, 'userData', 'spendingPlan');
-                // Use a counter for exponential backoff (max 4 retries)
-                for (let i = 0; i < 4; i++) {
-                    try {
-                        await setDoc(spendingPlanDocRef, { [fieldName]: cleanedData }, { merge: true });
-                        return; // Success, exit function
-                    } catch (error) {
-                        if (error.code === 'unavailable' || error.code === 'resource-exhausted') {
-                            await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));
-                        } else {
-                            throw error;
-                        }
-                    }
-                }
-                showUserMessage(`Could not save your ${fieldName} changes after multiple retries.`);
-
-            } catch (err) {
-                console.error(`Error updating ${fieldName}:`, err);
-                showUserMessage(`Could not save your ${fieldName} changes.`);
-            }
-        };
-
-        // --- Core Data Manipulation Logic ---
+        // --- Core Data Manipulation Logic (Client-Only) ---
 
         const updateItemInList = (fieldName, id, updates) => {
             const list = state[fieldName];
@@ -435,10 +420,10 @@
             const defaults = getDefaults(fieldName);
 
             if (itemToUpdateIndex !== -1) {
-                // Case 1: Item already saved (custom or previously saved default)
+                // Item already exists in state, update it
                 updatedList[itemToUpdateIndex] = { ...updatedList[itemToUpdateIndex], ...updates };
             } else {
-                // Case 2: Default item being modified for the first time
+                // Default item being modified for the first time
                 const defaultItem = defaults.find(d => d.name === id);
                 if (defaultItem) {
                     // Save the default item with its name as the ID for stability
@@ -451,29 +436,34 @@
             }
 
             state[fieldName] = updatedList;
-            updateSpendingPlanInFirestore(updatedList, fieldName);
             renderApp();
         };
 
         const deleteItemFromList = (fieldName, id) => {
             let list = state[fieldName];
 
-            // If the ID is a custom UUID, filter it out.
-            const updatedList = list.filter(item => item.id !== id);
+            // 1. Try to filter out by UUID (custom item)
+            const filteredList = list.filter(item => item.id !== id);
 
-            // If the ID is a default name (meaning it's a default item saved with amount > 0),
-            // we set its amount to 0 and let the Firestore update clean it up.
-            if (updatedList.length === list.length) {
+            let finalState;
+
+            if (filteredList.length !== list.length) {
+                // Item was a custom item, just use the filtered list
+                finalState = filteredList;
+            } else {
+                // Item must be a default item (id is name), so set its amount to 0
                 const itemToZeroIndex = list.findIndex(item => item.name === id);
                 if (itemToZeroIndex !== -1) {
-                    updatedList = list.map((item, index) =>
-                        index === itemToZeroIndex ? { ...item, amount: 0 } : item
-                    );
+                    list[itemToZeroIndex].amount = 0;
+                    // Filter out the zeroed default item
+                    finalState = list.filter(item => (item.amount || 0) > 0 || item.isCustom);
+                } else {
+                    // Should not happen, but if item is not found by UUID or Name, do nothing
+                    return;
                 }
             }
 
-            state[fieldName] = updatedList.filter(item => (item.amount || 0) > 0 || item.isCustom);
-            updateSpendingPlanInFirestore(state[fieldName], fieldName);
+            state[fieldName] = finalState;
             renderApp();
         };
 
@@ -492,7 +482,6 @@
             const updatedList = [...state[fieldName], newItem];
 
             state[fieldName] = updatedList;
-            updateSpendingPlanInFirestore(updatedList, fieldName);
             renderApp();
             showUserMessage(`Added custom item: ${name}.`, false);
         };
@@ -503,9 +492,8 @@
             showConfirmationModal(
                 `Clear ${title}?`,
                 `This will reset all data in the "${title}" section to zero. Are you sure you want to proceed?`,
-                async () => {
+                () => {
                     state[fieldName] = []; // Clear local state
-                    await updateSpendingPlanInFirestore([], fieldName);
                     showUserMessage(`${title} section cleared successfully.`, false);
                     renderApp();
                 }
@@ -515,14 +503,12 @@
         const clearAllData = () => {
             showConfirmationModal(
                 `Clear Entire Plan?`,
-                `DANGER: This will clear ALL entries from Income, Expenses, Savings, Investments, and Guilt-Free Spending. This cannot be undone. Are you absolutely sure?`,
-                async () => {
+                `DANGER: This will clear ALL entries from Income, Expenses, Savings, Investments, and Guilt-Free Spending. This cannot be undone (and is not saved to a database). Are you absolutely sure?`,
+                () => {
                     const fields = Object.keys(FIELD_MAP);
-                    // Clear all fields in parallel
-                    await Promise.all(fields.map(fieldName => {
+                    fields.forEach(fieldName => {
                         state[fieldName] = [];
-                        return updateSpendingPlanInFirestore([], fieldName);
-                    }));
+                    });
                     showUserMessage("Entire Spending Plan cleared successfully and reset to defaults.", false);
                     renderApp();
                 }
@@ -586,7 +572,7 @@
             }
         };
 
-        // --- Initialization ---
+        // --- Initialization (Client-Only) ---
 
         document.addEventListener('DOMContentLoaded', () => {
             // Set up event listeners (delegated)
@@ -597,6 +583,11 @@
             // Global Clear Button Listener
             document.getElementById('global-clear-btn').addEventListener('click', clearAllData);
 
+            // Print Button Listener
+            document.getElementById('print-plan-btn').addEventListener('click', () => {
+                window.print();
+            });
+
             // Modal Listeners
             document.getElementById('modal-cancel').addEventListener('click', hideConfirmationModal);
             document.getElementById('modal-confirm').addEventListener('click', () => {
@@ -606,62 +597,8 @@
                 hideConfirmationModal();
             });
 
-
-            // 1. Initialize Firebase
-            try {
-                app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-            } catch (e) {
-                console.error("Firebase initialization failed:", e);
-                showUserMessage("Failed to initialize the database. Check console for details.");
-                return;
-            }
-
-            // 2. Authenticate
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    userId = user.uid;
-                    startDataListener();
-                } else if (initialAuthToken) {
-                    try {
-                        await signInWithCustomToken(auth, initialAuthToken);
-                        // onAuthStateChanged will be triggered again with the user object
-                    } catch (error) {
-                        console.error("Custom token sign-in failed, signing in anonymously:", error);
-                        await signInAnonymously(auth);
-                    }
-                } else {
-                    try {
-                        await signInAnonymously(auth);
-                    } catch (e) {
-                        console.error("Anonymous sign-in failed:", e);
-                        showUserMessage("Authentication failed. Cannot load data.");
-                    }
-                }
-            });
-
-            // 3. Start Firestore Listener
-            const startDataListener = () => {
-                const spendingPlanDocRef = doc(db, 'artifacts', appId, 'users', userId, 'userData', 'spendingPlan');
-                onSnapshot(spendingPlanDocRef, (docSnap) => {
-                    if (docSnap.exists()) {
-                        const data = docSnap.data();
-                        // Update state with data from Firestore (or empty array if not present)
-                        state.incomeStreams = data.incomeStreams || [];
-                        state.monthlyExpenses = data.monthlyExpenses || [];
-                        state.guiltFreeSpending = data.guiltFreeSpending || [];
-                        state.savingsGoals = data.savingsGoals || [];
-                        state.investments = data.investments || [];
-                    } else {
-                        // Document doesn't exist, use empty arrays (already initialized)
-                    }
-                    renderApp();
-                }, (err) => {
-                    console.error("Error fetching spending plan:", err);
-                    showUserMessage("Failed to load your spending plan.");
-                });
-            };
+            // Start the application rendering immediately
+            renderApp();
         });
     </script>
 </body>
